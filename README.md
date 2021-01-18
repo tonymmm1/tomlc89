@@ -154,15 +154,6 @@ structure. The `ok` flag in the structure indicates if the function
 call was successful. If so, you may proceed to read the value
 corresponding to the type of the content.
 
-<<<<<<< HEAD
-```
-mkdir build
-cd build
-cmake ..
-make
-```
-
-=======
 For example:
 ```
 toml_datum_t host = toml_string_in(tab, "host");
@@ -176,8 +167,16 @@ if (host.ok) {
 
 ## Building and installing
 
+CMake
+
+```
+mkdir build
+cd build
+cmake ..
+make
+```
+
 A normal *make* suffices. You can also simply include the
->>>>>>> upstream/master
 `toml.c` and `toml.h` files in your project.
 
 Invoking `make install` will install the header and library files into
