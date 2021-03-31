@@ -49,14 +49,16 @@ int indent = 0;
 
 static void prindent()
 {
-	for (int i = 0; i < indent; i++) printf("  ");
+	int i;
+	for (i = 0; i < indent; i++) printf("  ");
 }
 
 
 static void print_string(const char* s)
 {
 	int ok = 1;
-	for (const char* p = s; *p && ok; p++) {
+	const char *p;
+	for (p = s; *p && ok; p++) {
 		int ch = *p;
 		ok = isprint(ch) && ch != '"' && ch != '\\';
 	}
@@ -192,12 +194,13 @@ static void print_table(toml_table_t* curtab)
 
 static void print_array(toml_array_t* curarr)
 {
+	int i;
 	toml_datum_t d;
-    toml_array_t* arr;
-    toml_table_t* tab;
+    	toml_array_t* arr;
+	toml_table_t* tab;
 	const int n = toml_array_nelem(curarr);
 
-	for (int i = 0; i < n; i++) {
+	for (i = 0; i < n; i++) {
 
 		if (0 != (arr = toml_array_at(curarr, i))) {
 			prindent();
