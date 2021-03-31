@@ -23,7 +23,7 @@ all: $(LIB) $(LIB_SHARED) $(EXEC)
 libtoml.a: toml.o
 	ar -rcs $@ $^
 
-libtoml.so: toml.o
+libtoml.so.$(LIB_VERSION): toml.o
 	$(CC) -shared -o $@ $^
 
 toml_json: toml_json.c $(LIB)
